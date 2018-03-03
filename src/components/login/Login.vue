@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box-login">
     <LoginHeader></LoginHeader>
     <LoginForm></LoginForm>
     <LoginSNS></LoginSNS>
@@ -21,4 +21,5 @@ export default {
 </script>
 
 <style>
+.box-login{}
 </style>
