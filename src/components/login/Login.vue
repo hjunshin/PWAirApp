@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import LoginForm from './LoginForm.vue';
-import LoginHeader from './LoginHeader.vue';
-import LoginSNS from './LoginSNS.vue';
+  import LoginForm from './LoginForm.vue';
+  import LoginHeader from './LoginHeader.vue';
+  import LoginSNS from './LoginSNS.vue';
 
-export default {
-  components: {
-    LoginForm,
-    LoginHeader,
-    LoginSNS
+  export default {
+    components: {
+      LoginForm,
+      LoginHeader,
+      LoginSNS
+    }
   }
-}
 </script>
 
-<style>
-.box-login{}
+<style scoped>
+ .box-login{padding:0 1.429rem;}
 </style>

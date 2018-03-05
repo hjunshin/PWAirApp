@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* reset CSS */
+html, body{
+    margin:0;padding:0;
+    font-family:"맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", AppleGothic, Arial, sans-serif;
+    font-size:14px;
+    color:#fff;
+}
+dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, tbody, tfoot, thead, th, td{
+    margin:0;padding:0;
+}
+input, textarea, select, td, th{
+    font-size:1rem;
+}
+table{
+    border-spacing:0;border-collapse:collapse;
+}
+ol, ul , li{
+    list-style:none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-size:100%;
+    font-weight:normal;
+}
+abbr, acronym{
+    border:0;
+}
+hr, legend{
+    position:absolute;top:0;left:-1000em;
+    visibility:hidden;overflow:hidden;
+    line-height:0.1%;
+    font-size:0.1%;
+    width:0.1%;height:0.1%;
+}
+caption{width:0;height:0;font-size:0;line-height:0;visibility:hidden;overflow:hidden;}
+abbr{text-decoration:none;}
+img{vertical-align:top;}
+img, fieldset{border:0 none;}
+label{cursor:pointer;}
+button{border:0;cursor:pointer;}
+input, button, textarea, select{font-size:1rem;font-family:"맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", AppleGothic, Arial, sans-serif;background:transparent;}
+
+a{color:#000;text-decoration:none;}
+a:link, a:visited{color:#686868;text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+
+.blind{display:block;position:absolute;left:0;top:0;width:1px;height:1px;font-size:0;overflow:hidden;}

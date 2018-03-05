@@ -1,6 +1,7 @@
 <template>
-  <div class="">
-    LoginSNS
+  <div class="box-btn">
+    <md-button class="md-raised">GOOGLE</md-button>
+    <md-button class="md-raised">FACEBOOK</md-button>
   </div>
 </template>
 
@@ -9,5 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .box-btn{padding-top:1.429rem;}
 </style>

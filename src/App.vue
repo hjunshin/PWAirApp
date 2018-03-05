@@ -6,9 +6,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'app',
+<style scoped>
 
-}
+</style>
+
+<script>
+
 </script>
