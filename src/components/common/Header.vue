@@ -14,8 +14,8 @@
       <nav>
         <div class="nav">
           <ul>
-            <li>메뉴 1</li>
-            <li>메뉴 1</li>
+            <li>실시간 대기 지수</li>
+            <li>지난 미세먼지 지수</li>
           </ul>
         </div>
       </nav>
