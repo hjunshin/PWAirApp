@@ -1,7 +1,11 @@
 <template>
-  <div class="">
+  <section>
+    <article>
+      <div class="">
 
-  </div>
+      </div>
+    </article>
+  </section>
 </template>
 
 <script>
