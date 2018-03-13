@@ -23,6 +23,11 @@
   </header>
 </template>
 
+<script>
+
+</script>
+
+
 <style scoped>
   .header .bar{position:relative;padding-left:52px;width:100%;height:60px;box-sizing:border-box;}
   .header .bar .title{padding-left:1.429rem;font-size:1.429rem;font-weight:bold;line-height:4.286rem;}
@@ -32,7 +37,3 @@
   .btn-nav.md-button.md-theme-default.md-primary .md-icon-font{color:#fff;}
   .md-theme-default a:not(.md-button){display:inline-block;height:100%;color:#fff;text-decoration:none;}
 </style>
-
-<script>
-
-</script>

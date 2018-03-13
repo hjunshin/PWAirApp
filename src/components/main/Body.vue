@@ -3,25 +3,13 @@
     <div class="content">
       <article>
         Body
-        <p id="startLat"></p>
-        <p id="startLon"></p>
+        <div id="map" style="width:100%;height:400px;"></div>
       </article>
     </div>
   </section>
 </template>
 
 <script>
-
-window.onload = function() {
-  var startPos;
-  var geoSuccess = function(position) {
-    startPos = position;
-    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-  };
-  navigator.geolocation.getCurrentPosition(geoSuccess);
-};
-
 export default {
 }
 </script>
