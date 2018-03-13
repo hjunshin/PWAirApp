@@ -14,7 +14,7 @@
                     <label for="email">아이디</label>
                     <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
                     <span class="md-error" v-if="!$v.form.email.required">아이디를 입력해주세요.</span>
-                    <span class="md-error" v-else-if="!$v.form.email.email">유효하지 않은 비밀번호 아이디입니다.</span>
+                    <span class="md-error" v-else-if="!$v.form.email.email">유효하지 않은 아이디입니다.</span>
                   </md-field>
 
                   <md-field :class="getValidationClass('password')">
@@ -90,28 +90,44 @@ export default {
         this.userLogined = true
         this.sending = false
 
-        //로그인 인증
-        firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).catch(
-          (error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            console.log(`[${errorCode}] ${errorMessage}`);
-          }
-        ).then(
-          (user) => {
-            this.$router.push('home');
-          }
-        );
-
         this.clearForm()
       }, 1500)
     },
     validateUser () {
       this.$v.$touch()
 
-      if (!this.$v.$invalid) {
-        this.loginUser()
-      }
+      //로그인 인증
+      firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).catch(
+        (error) => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          let errorInfo = error.code.split("/");
+              errorInfo = errorInfo[1];
+          console.log(`[${errorCode}] ${errorMessage}`);
+
+          switch (errorInfo) {
+            case "user-not-found":
+              console.log("유효하지 않은 아이디입니다.");
+              break;
+            case "wrong-password":
+              console.log("유효하지 않은 비밀번호입니다.");
+              break;
+            default:
+          }
+        }
+      ).then(
+        (user) => {
+
+          if(user !== undefined){
+            if (!this.$v.$invalid) {
+              this.loginUser()
+            }
+            this.$router.push('home');
+          }
+
+        }
+      );
+
     }
   },
   validations:{
