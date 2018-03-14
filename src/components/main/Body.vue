@@ -2,7 +2,6 @@
   <section>
     <div class="content">
       <article>
-        <!-- <dong v-bind:dongdata="dongname"></dong> -->
         <!-- <div id="map" style="width:100%;height:400px;"></div> -->
       </article>
     </div>
@@ -10,42 +9,54 @@
 </template>
 
 <script>
-var startPos;
-var geoSuccess = function(position) {
-  startPos = position;
-  var dong;
-  var lati = startPos.coords.latitude;
-  var longi = startPos.coords.longitude;
+import axios from 'axios';
 
-  var latlng = new naver.maps.LatLng(lati, longi);
+var CityAir = 'http://openapi.seoul.go.kr:8088/73684579786775733932744377544d/json/RealtimeCityAir/1/25/';
+var dongName = [];
+
+axios.get(CityAir).then(function(response){
+  var listTotalCount = response.data.RealtimeCityAir.list_total_count;
+  var listRow = response.data.RealtimeCityAir.row;
+
+  for(var i = 0; i < listTotalCount; i+=1){
+    dongName.push(response.data.RealtimeCityAir.row[i].MSRSTE_NM);
+  }
+
+}).catch(function(error){
+  console.log(error);
+});
+
+var gu;
+var geoSuccess = function(position) {
+  var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   naver.maps.Service.reverseGeocode({
-      location: latlng,
+      location,
   }, function(status, response) {
       if (status !== naver.maps.Service.Status.OK) {
           return alert('Something wrong!');
       }
 
-      var result = response.result, // 검색 결과의 컨테이너
-          items = result.items; // 검색 결과의 배열
-          dong = items[0].addrdetail.dongmyun;
-          //document.getElementsByClassName('dong').textContent = items[0].addrdetail.dongmyun;
-          console.log(dong);
-          //http://openapi.seoul.go.kr:8088/73684579786775733932744377544d/json/RealtimeCityAir/1/5/%EB%8F%99%EB%82%A8%EA%B6%8C/%EC%86%A1%ED%8C%8C%EA%B5%AC
-      // do Something
+      var result = response.result; // 검색 결과의 컨테이너
+      var items = result.items; // 검색 결과의 배열
+      var sigugun = items[0].addrdetail.sigugun.split(" ");
+          gu = sigugun[1];
   });
 
 };
 navigator.geolocation.getCurrentPosition(geoSuccess);
 
-console.log(geoSuccess);
+window.onload = function(){
+  console.log(gu);
 
-// Vue.component('dong', {
-//   props: []
-// });
+};
+
+
+
 
 export default {
   mounted: function(){
+    console.log("마운티드");
 
 
   }

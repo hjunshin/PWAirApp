@@ -11,6 +11,7 @@ import 'vue-material/dist/theme/default.css'
 import App from './App.vue';
 import axios from 'axios';
 
+
 firebase.initializeApp(firebaseConfig);
 
 Vue.use(VueRouter);
