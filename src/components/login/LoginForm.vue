@@ -44,6 +44,7 @@
 </template>
 
 <script>
+
 import { validationMixin } from 'vuelidate';
   import {
     required,
@@ -83,15 +84,16 @@ export default {
     },
     loginUser () {
       this.sending = true
+      this.lastUser = `${this.form.email}`
+      this.userLogined = true
 
       // Instead of this timeout, here you can call your API
       window.setTimeout(() => {
-        this.lastUser = `${this.form.email}`
-        this.userLogined = true
         this.sending = false
-
         this.clearForm()
+        this.$router.push('home');
       }, 1500)
+
     },
     validateUser () {
       this.$v.$touch()
@@ -110,6 +112,7 @@ export default {
               console.log("유효하지 않은 아이디입니다.");
               break;
             case "wrong-password":
+              console.log(this.$v.form.password.$error);
               console.log("유효하지 않은 비밀번호입니다.");
               break;
             default:
@@ -118,15 +121,18 @@ export default {
       ).then(
         (user) => {
 
-          if(user !== undefined){
-            if (!this.$v.$invalid) {
+          if (!this.$v.$invalid) {
+            if(user){
               this.loginUser()
+            }else{
+
             }
-            this.$router.push('home');
           }
 
         }
       );
+
+
 
     }
   },
