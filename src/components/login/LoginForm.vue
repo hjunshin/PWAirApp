@@ -87,7 +87,6 @@ export default {
       this.lastUser = `${this.form.email}`
       this.userLogined = true
 
-      // Instead of this timeout, here you can call your API
       window.setTimeout(() => {
         this.sending = false
         this.clearForm()
@@ -112,7 +111,6 @@ export default {
               console.log("유효하지 않은 아이디입니다.");
               break;
             case "wrong-password":
-              console.log(this.$v.form.password.$error);
               console.log("유효하지 않은 비밀번호입니다.");
               break;
             default:
