@@ -250,7 +250,7 @@ export default {
 
 <style scoped>
   .total-info{text-align:center;box-sizing:border-box;}
-  .detail-info{position:absolute;left:0;bottom:0;padding:1.429rem 0 2.857rem;width:100%;height:25%;box-sizing:border-box;}
+  .detail-info{position:relative;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
   .detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.5;}
   .detail-info .list{font-size:0;}
   .detail-info .list > li{display:inline-block;width:33.3%;font-size:1rem;text-align:center;}
