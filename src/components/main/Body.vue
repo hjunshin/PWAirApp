@@ -2,36 +2,38 @@
   <section>
     <div class="content">
       <article>
-        <div class="box-total-info">
-          <!-- 통합대기환경지수 -->
-          <p>
-            <i class="material-icons">&#xE815;</i><br>
-            {{ CityAir.IDEX_MVL[CityAir.IDX] }}
-          </p>
-          <!-- 측정소명, 통합대기환경등급 -->
-          <p>{{ CityAir.MSRSTE_NM[CityAir.IDX] }}의 대기는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
-          <!-- 측정일시 -->
-          <p>기준 : {{ CityAir.MSRDT[CityAir.IDX] }}</p>
-        </div>
+        <div class="box-info">
+          <div class="total-info">
+            <!-- 통합대기환경지수 -->
+            <p>
+              <i class="material-icons">&#xE815;</i><br>
+              {{ CityAir.IDEX_MVL[CityAir.IDX] }}
+            </p>
+            <!-- 측정소명, 통합대기환경등급 -->
+            <p>{{ CityAir.MSRSTE_NM[CityAir.IDX] }}의 대기는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
+            <!-- 측정일시 -->
+            <p>기준 : {{ CityAir.MSRDT[CityAir.IDX] }}</p>
+          </div>
 
-        <div class="box-detail-info">
-          <ul class="list">
-            <li>
-              <p>미세먼지</p>
-              <i class="material-icons">&#xE815;</i>
-              <p>{{ CityAir.PM10[CityAir.IDX] }}㎍/m³</p>
-            </li>
-            <li>
-              <p>오존</p>
-              <i class="material-icons">&#xE812;</i>
-              <p>{{ CityAir.O3[CityAir.IDX] }}ppm</p>
-            </li>
-            <li>
-              <p>초미세먼지</p>
-              <i class="material-icons">&#xE814;</i>
-              <p>{{ CityAir.PM25[CityAir.IDX] }}㎍/m³</p>
-            </li>
-          </ul>
+          <div class="detail-info">
+            <ul class="list">
+              <li>
+                <p>미세먼지</p>
+                <i class="material-icons">&#xE815;</i>
+                <p>{{ CityAir.PM10[CityAir.IDX] }}㎍/m³</p>
+              </li>
+              <li>
+                <p>오존</p>
+                <i class="material-icons">&#xE812;</i>
+                <p>{{ CityAir.O3[CityAir.IDX] }}ppm</p>
+              </li>
+              <li>
+                <p>초미세먼지</p>
+                <i class="material-icons">&#xE814;</i>
+                <p>{{ CityAir.PM25[CityAir.IDX] }}㎍/m³</p>
+              </li>
+            </ul>
+          </div>
 
         </div>
       </article>
@@ -247,9 +249,9 @@ export default {
 </script>
 
 <style scoped>
-  .box-total-info{text-align:center;}
-  .box-detail-info{position:absolute;left:0;bottom:0;width:100%;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
-  .box-detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.5;}
-  .box-detail-info .list{font-size:0;}
-  .box-detail-info .list > li{display:inline-block;width:33.3%;font-size:1rem;text-align:center;}
+  .total-info{text-align:center;box-sizing:border-box;}
+  .detail-info{position:absolute;left:0;bottom:0;padding:1.429rem 0 2.857rem;width:100%;height:25%;box-sizing:border-box;}
+  .detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.5;}
+  .detail-info .list{font-size:0;}
+  .detail-info .list > li{display:inline-block;width:33.3%;font-size:1rem;text-align:center;}
 </style>
