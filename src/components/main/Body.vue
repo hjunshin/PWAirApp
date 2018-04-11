@@ -115,8 +115,10 @@ export default {
 
           var result = response.result; // 검색 결과의 컨테이너
           var items = result.items; // 검색 결과의 배열
-          var sigugun = items[0].addrdetail.sigugun.split(" ");
-          var gu = sigugun[1];
+          var sigugun = items[0].addrdetail.sigugun;
+          var gu = sigugun;
+
+console.log(gu);
 
           switch (gu) {
             case CityAir.MSRSTE_NM[0]:
