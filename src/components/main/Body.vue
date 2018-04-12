@@ -70,25 +70,12 @@ export default {
       var listRow = response.data.RealtimeCityAir.row;
 
       for(var i = 0; i < listTotalCount; i+=1){
-        //측정일시
         CityAir.MSRDT.push(response.data.RealtimeCityAir.row[i].MSRDT);
-
-        //측정소명
         CityAir.MSRSTE_NM.push(response.data.RealtimeCityAir.row[i].MSRSTE_NM);
-
-        //통합대기환경등급
         CityAir.IDEX_NM.push(response.data.RealtimeCityAir.row[i].IDEX_NM);
-
-        //통합대기환경지수
         CityAir.IDEX_MVL.push(response.data.RealtimeCityAir.row[i].IDEX_MVL);
-
-        //미세먼지
         CityAir.PM10.push(response.data.RealtimeCityAir.row[i].PM10);
-
-        //초미세먼지농도
         CityAir.PM25.push(response.data.RealtimeCityAir.row[i].PM25);
-
-        //오존
         CityAir.O3.push(response.data.RealtimeCityAir.row[i].O3);
       }
 
@@ -230,20 +217,13 @@ console.log(gu);
     };
 
     function realtimeCityAir(num){
-      //측정일시
-      CityAir.MSRDT[num];
-      //측정소명
-      CityAir.MSRSTE_NM[num];
-      //통합대기환경등급
-      CityAir.IDEX_NM[num];
-      //통합대기환경지수
-      CityAir.IDEX_MVL[num];
-      //미세먼지
-      CityAir.PM10[num];
-      //초미세먼지농도
-      CityAir.PM25[num];
-      //오존
-      CityAir.O3[num];
+      CityAir.MSRDT[num]; //측정일시
+      CityAir.MSRSTE_NM[num]; //측정소명
+      CityAir.IDEX_NM[num]; //통합대기환경등급
+      CityAir.IDEX_MVL[num];  //통합대기환경지수
+      CityAir.PM10[num];  //미세먼지
+      CityAir.PM25[num];  //초미세먼지농도
+      CityAir.O3[num];  //오존
     }
 
   }
@@ -251,7 +231,7 @@ console.log(gu);
 </script>
 
 <style scoped>
-  .total-info{text-align:center;box-sizing:border-box;}
+  .total-info{padding:8.571rem 0;text-align:center;box-sizing:border-box;}
   .detail-info{position:relative;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
   .detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.5;}
   .detail-info .list{font-size:0;}
