@@ -1,43 +1,41 @@
 <template>
-  <section>
-    <div class="content">
-      <article>
-        <div class="box-info">
-          <div class="total-info">
-            <!-- 통합대기환경지수 -->
-            <p>
-              <i class="material-icons">&#xE815;</i><br>
-              {{ CityAir.IDEX_MVL[CityAir.IDX] }}
-            </p>
-            <!-- 측정소명, 통합대기환경등급 -->
-            <p>{{ CityAir.MSRSTE_NM[CityAir.IDX] }}의 대기는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
-            <!-- 측정일시 -->
-            <p>기준 : {{ CityAir.MSRDT[CityAir.IDX] }}</p>
-          </div>
-
-          <div class="detail-info">
-            <ul class="list">
-              <li>
-                <p>미세먼지</p>
-                <i class="material-icons">&#xE815;</i>
-                <p>{{ CityAir.PM10[CityAir.IDX] }}㎍/m³</p>
-              </li>
-              <li>
-                <p>오존</p>
-                <i class="material-icons">&#xE812;</i>
-                <p>{{ CityAir.O3[CityAir.IDX] }}ppm</p>
-              </li>
-              <li>
-                <p>초미세먼지</p>
-                <i class="material-icons">&#xE814;</i>
-                <p>{{ CityAir.PM25[CityAir.IDX] }}㎍/m³</p>
-              </li>
-            </ul>
-          </div>
-
+  <section class="content">
+    <article>
+      <div class="box-info">
+        <div class="total-info">
+          <!-- 통합대기환경지수 -->
+          <p>
+            <i class="material-icons">&#xE815;</i><br>
+            {{ CityAir.IDEX_MVL[CityAir.IDX] }}
+          </p>
+          <!-- 측정소명, 통합대기환경등급 -->
+          <p>{{ CityAir.MSRSTE_NM[CityAir.IDX] }}의 대기는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
+          <!-- 측정일시 -->
+          <p>기준 : {{ CityAir.MSRDT[CityAir.IDX] }}</p>
         </div>
-      </article>
-    </div>
+
+        <div class="detail-info">
+          <ul class="list">
+            <li>
+              <p>미세먼지</p>
+              <i class="material-icons">&#xE815;</i>
+              <p>{{ CityAir.PM10[CityAir.IDX] }}㎍/m³</p>
+            </li>
+            <li>
+              <p>오존</p>
+              <i class="material-icons">&#xE812;</i>
+              <p>{{ CityAir.O3[CityAir.IDX] }}ppm</p>
+            </li>
+            <li>
+              <p>초미세먼지</p>
+              <i class="material-icons">&#xE814;</i>
+              <p>{{ CityAir.PM25[CityAir.IDX] }}㎍/m³</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </article>
   </section>
 </template>
 
@@ -55,6 +53,7 @@ var CityAir = {
   PM25: [],
   O3: []
 }
+
 
 export default {
   data: function(){
@@ -104,8 +103,6 @@ export default {
           var items = result.items; // 검색 결과의 배열
           var sigugun = items[0].addrdetail.sigugun;
           var gu = sigugun;
-
-console.log(gu);
 
           switch (gu) {
             case CityAir.MSRSTE_NM[0]:
@@ -231,9 +228,12 @@ console.log(gu);
 </script>
 
 <style scoped>
-  .total-info{padding:8.571rem 0;text-align:center;box-sizing:border-box;}
-  .detail-info{position:relative;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
+  .content > article, .box-info, .total-info{height:100%;}
+  .box-info{position:relative;}
+  .total-info{line-height:1;text-align:center;box-sizing:border-box;}
+  .total-info .material-icons{font-size:6rem;}
+  .detail-info{position:absolute;left:0;bottom:0;width:100%;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
   .detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.5;}
-  .detail-info .list{font-size:0;}
+  .detail-info .list{font-size:0;line-height:1;}
   .detail-info .list > li{display:inline-block;width:33.3%;font-size:1rem;text-align:center;}
 </style>

@@ -6,6 +6,8 @@ html, body{
     font-family:"맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", AppleGothic, Arial, sans-serif;
     font-size:14px;
     color:#fff;
+    min-height:640px;
+    height:100%;
 }
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, tbody, tfoot, thead, th, td{
     margin:0;padding:0;

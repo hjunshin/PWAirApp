@@ -1,3 +1,5 @@
 body{min-width:320px;background:#2772db;}
 
+#app{height:100%;}
+.content{padding-top:4.286rem;height:100%;box-sizing:border-box;}
 .box-btn{font-size:0;text-align:center;}
