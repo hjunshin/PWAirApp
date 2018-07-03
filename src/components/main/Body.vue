@@ -104,124 +104,90 @@ export default {
           var sigugun = items[0].addrdetail.sigugun;
           var gu = sigugun;
 
-          switch (gu) {
-            case CityAir.MSRSTE_NM[0]:
+          var switchGu = {
+            "중구": function() {
               CityAir.IDX = 0;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[1]:
+            },
+            "종로구": function() {
               CityAir.IDX = 1;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[2]:
+            },
+            "용산구": function() {
               CityAir.IDX = 2;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[3]:
+            },
+            "은평구": function() {
               CityAir.IDX = 3;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[4]:
+            },
+            "서대문구": function() {
               CityAir.IDX = 4;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[5]:
+            },
+            "마포구": function() {
               CityAir.IDX = 5;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[6]:
+            },
+            "광진구": function() {
               CityAir.IDX = 6;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[7]:
+            },
+            "성동구": function() {
               CityAir.IDX = 7;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[8]:
+            },
+            "중랑구": function() {
               CityAir.IDX = 8;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[9]:
+            },
+            "동대문구": function() {
               CityAir.IDX = 9;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[10]:
+            },
+            "성북구": function() {
               CityAir.IDX = 10;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[11]:
+            },
+            "도봉구": function() {
               CityAir.IDX = 11;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[12]:
+            },
+            "강북구": function() {
               CityAir.IDX = 12;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[13]:
+            },
+            "노원구": function() {
               CityAir.IDX = 13;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[14]:
+            },
+            "강서구": function() {
               CityAir.IDX = 14;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[15]:
+            },
+            "구로구": function() {
               CityAir.IDX = 15;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[16]:
+            },
+            "영등포구": function() {
               CityAir.IDX = 16;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[17]:
+            },
+            "동작구": function() {
               CityAir.IDX = 17;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[18]:
+            },
+            "관악구": function() {
               CityAir.IDX = 18;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[19]:
+            },
+            "금천구": function() {
               CityAir.IDX = 19;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[20]:
+            },
+            "양천구": function() {
               CityAir.IDX = 20;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[21]:
+            },
+            "강남구": function() {
               CityAir.IDX = 21;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[22]:
+            },
+            "서초구": function() {
               CityAir.IDX = 22;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[23]:
+            },
+            "송파구": function() {
               CityAir.IDX = 23;
-              realtimeCityAir(idx);
-              break;
-            case CityAir.MSRSTE_NM[24]:
+            },
+            "강동구": function() {
               CityAir.IDX = 24;
-              realtimeCityAir(idx);
-              break;
-            default:
+            },
+            _default: function() {
               CityAir.IDX = 0;
-              realtimeCityAir(idx);
-          }
+            }
+          };
+          switchGu[gu](CityAir.MSRSTE_NM);
 
       });
     };
-
-    function realtimeCityAir(num){
-      CityAir.MSRDT[num]; //측정일시
-      CityAir.MSRSTE_NM[num]; //측정소명
-      CityAir.IDEX_NM[num]; //통합대기환경등급
-      CityAir.IDEX_MVL[num];  //통합대기환경지수
-      CityAir.PM10[num];  //미세먼지
-      CityAir.PM25[num];  //초미세먼지농도
-      CityAir.O3[num];  //오존
-    }
 
   }
 }
