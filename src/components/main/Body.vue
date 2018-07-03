@@ -61,8 +61,7 @@ export default {
       CityAir
     }
   },
-  mounted: function(){
-
+  beforeCreate: function(){
     //서울시 권역별 실시간 대기환경 현황 불러오기
     axios.get(CityAir.URL).then(function(response){
       var listTotalCount = response.data.RealtimeCityAir.list_total_count;
@@ -99,8 +98,8 @@ export default {
               return alert('Something wrong!');
           }
 
-          var result = response.result; // 검색 결과의 컨테이너
-          var items = result.items; // 검색 결과의 배열
+          var result = response.result;
+          var items = result.items;
           var sigugun = items[0].addrdetail.sigugun;
           var gu = sigugun;
 
@@ -188,6 +187,8 @@ export default {
 
       });
     };
+  },
+  mounted: function(){
 
   }
 }
