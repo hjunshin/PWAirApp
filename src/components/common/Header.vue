@@ -29,6 +29,7 @@
   .header .nav{display:none;position:absolute;left:0;top:0;width:250px;height:100%;background:#fff;z-index:9000;}
   .btn-nav.md-button.md-theme-default.md-primary .md-icon-font{color:#fff;}
   .md-theme-default a:not(.md-button){display:inline-block;height:100%;color:#fff;text-decoration:none;}
+  .md-button.md-theme-default.md-raised:not([disabled]).md-primary{background:transparent;}
 </style>
 
 <script>
@@ -38,7 +39,7 @@ export default {
 
     },
     btnRefresh(){
-      
+
     }
   }
 }

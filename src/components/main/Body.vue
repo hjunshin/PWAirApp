@@ -1,5 +1,5 @@
 <template>
-  <section class="content" v-bind:class="{}">
+  <section class="content" v-bind:class="bgClass">
     <article>
       <div class="box-info">
         <div class="total-info">
@@ -12,7 +12,7 @@
 
           <!-- 측정소명, 통합대기환경등급 -->
           <div v-if="CityAir.IDEX_NM[CityAir.IDX] === '점검중'">
-            <p>{{ CityAir.MSRSTE_NM[CityAir.IDX] }} 측정소는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
+            <p class="total-area">{{ CityAir.MSRSTE_NM[CityAir.IDX] }} 측정소는 지금 {{ CityAir.IDEX_NM[CityAir.IDX] }}!</p>
           </div>
           <div v-else>
             <p class="total-score">{{ CityAir.IDEX_MVL[CityAir.IDX] }}</p>
@@ -113,7 +113,16 @@ var CityAir = {
 }
 
 var bgClass = {
-  
+  bg1: false,
+  bg2: false,
+  bg3: false,
+  bg4: false,
+  bg5: false
+  // 'bg-very_satisfied': false,
+  // 'bg-satisfied': false,
+  // 'bg-dissatisfied': false,
+  // 'bg-very_dissatisfied': false,
+  // 'bg-build': false
 }
 
 
@@ -245,7 +254,26 @@ export default {
           };
           switchGu[gu]();
 
+          switch (CityAir.IDEX_NM[CityAir.IDX]) {
+            case "좋음":
+              bgClass.bg1 = true;
+              break;
+            case "보통":
+              bgClass.bg2 = true;
+              break;
+            case "나쁨":
+              bgClass.bg3 = true;
+              break;
+            case "매우나쁨":
+              bgClass.bg4 = true;
+              break;
+            case "점검중":
+              bgClass.bg5 = true;
+              break;
+          }
+
       });
+
     };
   },
   mounted: function(){
@@ -255,11 +283,16 @@ export default {
 </script>
 
 <style scoped>
-  .bg-very_satisfied{background:#52dbbe;}
+  .bg1{background:#52dbbe;}
+  .bg2{background:#fe9f1f;}
+  .bg3{background:#f94558;}
+  .bg4{background:#ba0300;}
+  .bg5{background:#000;}
+  /* .bg-very_satisfied{background:#52dbbe;}
   .bg-satisfied{background:#fe9f1f;}
   .bg-dissatisfied{background:#f94558;}
   .bg-very_dissatisfied{background:#ba0300;}
-  .bg-build{background:#000;}
+  .bg-build{background:#000;} */
 
   .content > article, .box-info{height:100%;}
   .box-info{position:relative;}
