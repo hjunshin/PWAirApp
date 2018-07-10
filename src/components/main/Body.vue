@@ -4,11 +4,11 @@
       <div class="box-info">
         <div class="total-info">
           <!-- 통합대기환경지수 -->
-          <div v-if="CityAir.IDEX_NM[CityAir.IDX] === '좋음'"><i class="material-icons">sentiment_very_satisfied</i></div>
-          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '보통'"><i class="material-icons">sentiment_satisfied</i></div>
-          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '나쁨'"><i class="material-icons">sentiment_dissatisfied</i></div>
-          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '매우나쁨'"><i class="material-icons">sentiment_very_dissatisfied</i></div>
-          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '점검중'"><i class="material-icons">build</i></div>
+          <div v-if="CityAir.IDEX_NM[CityAir.IDX] === '좋음'"><md-icon class="md-size-4x">sentiment_very_satisfied</md-icon></div>
+          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '보통'"><md-icon class="md-size-4x">sentiment_satisfied</md-icon></div>
+          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '나쁨'"><md-icon class="md-size-4x">sentiment_dissatisfied</md-icon></div>
+          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '매우나쁨'"><md-icon class="md-size-4x">sentiment_very_dissatisfied</md-icon></div>
+          <div v-else-if="CityAir.IDEX_NM[CityAir.IDX] === '점검중'"><md-icon class="md-size-4x">build</md-icon></div>
 
           <!-- 측정소명, 통합대기환경등급 -->
           <div v-if="CityAir.IDEX_NM[CityAir.IDX] === '점검중'">
@@ -25,71 +25,69 @@
 
 
         <div v-if="CityAir.IDEX_NM[CityAir.IDX] === '점검중'"></div>
-        <div v-else>
-          <div class="detail-info">
-            <ul class="list">
-              <li>
-                <p class="detail-category">미세먼지</p>
-                <div v-if="CityAir.PM10[CityAir.IDX] >= 0 && CityAir.PM10[CityAir.IDX] <= 30">
-                  <i class="material-icons">sentiment_very_satisfied</i>
-                  <p>좋음</p>
-                </div>
-                <div v-else-if="CityAir.PM10[CityAir.IDX] > 30 && CityAir.PM10[CityAir.IDX] <= 80">
-                  <i class="material-icons">sentiment_satisfied</i>
-                  <p>보통</p>
-                </div>
-                <div v-else-if="CityAir.PM10[CityAir.IDX] > 80 && CityAir.PM10[CityAir.IDX] <= 150">
-                  <i class="material-icons">sentiment_dissatisfied</i>
-                  <p>나쁨</p>
-                </div>
-                <div v-else-if="CityAir.PM10[CityAir.IDX] > 150">
-                  <i class="material-icons">sentiment_very_dissatisfied</i>
-                  <p>매우나쁨</p>
-                </div>
-                <p class="detail-value">{{ CityAir.PM10[CityAir.IDX] }}&#13197;/m&#179;</p>
-              </li>
-              <li>
-                <p class="detail-category">오존</p>
-                <div v-if="CityAir.O3[CityAir.IDX] >= 0 && CityAir.O3[CityAir.IDX] <= 0.030">
-                  <i class="material-icons">sentiment_very_satisfied</i>
-                  <p>좋음</p>
-                </div>
-                <div v-else-if="CityAir.O3[CityAir.IDX] > 0.030 && CityAir.O3[CityAir.IDX] <= 0.090">
-                  <i class="material-icons">sentiment_satisfied</i>
-                  <p>보통</p>
-                </div>
-                <div v-else-if="CityAir.O3[CityAir.IDX] > 0.090 && CityAir.O3[CityAir.IDX] <= 0.15">
-                  <i class="material-icons">sentiment_dissatisfied</i>
-                  <p>나쁨</p>
-                </div>
-                <div v-else-if="CityAir.O3[CityAir.IDX] > 0.150">
-                  <i class="material-icons">sentiment_very_dissatisfied</i>
-                  <p>매우나쁨</p>
-                </div>
-                <p class="detail-value">{{ CityAir.O3[CityAir.IDX] }}ppm</p>
-              </li>
-              <li>
-                <p class="detail-category">초미세먼지</p>
-                <div v-if="CityAir.PM25[CityAir.IDX] >= 0 && CityAir.PM25[CityAir.IDX] <= 15">
-                  <i class="material-icons">sentiment_very_satisfied</i>
-                  <p>좋음</p>
-                </div>
-                <div v-else-if="CityAir.PM25[CityAir.IDX] > 15 && CityAir.PM25[CityAir.IDX] <= 35">
-                  <i class="material-icons">sentiment_satisfied</i>
-                  <p>보통</p>
-                </div>
-                <div v-else-if="CityAir.PM25[CityAir.IDX] > 35 && CityAir.PM25[CityAir.IDX] <= 75">
-                  <i class="material-icons">sentiment_dissatisfied</i>
-                  <p>나쁨</p>
-                </div>
-                <div v-else-if="CityAir.PM25[CityAir.IDX] > 75">
-                  <i class="material-icons">sentiment_very_dissatisfied</i>
-                  <p>매우나쁨</p>
-                </div>
-                <p class="detail-value">{{ CityAir.PM25[CityAir.IDX] }}&#13197;/m&#179;</p>
-              </li>
-            </ul>
-          </div>
+        <div v-else class="detail-info">
+          <ul class="list">
+            <li>
+              <p class="detail-category">미세먼지</p>
+              <div v-if="CityAir.PM10[CityAir.IDX] >= 0 && CityAir.PM10[CityAir.IDX] <= 30">
+                <md-icon class="md-size-2x">sentiment_very_satisfied</md-icon>
+                <p>좋음</p>
+              </div>
+              <div v-else-if="CityAir.PM10[CityAir.IDX] > 30 && CityAir.PM10[CityAir.IDX] <= 80">
+                <md-icon class="md-size-2x">sentiment_satisfied</md-icon>
+                <p>보통</p>
+              </div>
+              <div v-else-if="CityAir.PM10[CityAir.IDX] > 80 && CityAir.PM10[CityAir.IDX] <= 150">
+                <md-icon class="md-size-2x">sentiment_dissatisfied</md-icon>
+                <p>나쁨</p>
+              </div>
+              <div v-else-if="CityAir.PM10[CityAir.IDX] > 150">
+                <md-icon class="md-size-2x">sentiment_very_dissatisfied</md-icon>
+                <p>매우나쁨</p>
+              </div>
+              <p class="detail-value">{{ CityAir.PM10[CityAir.IDX] }}&#13197;/m&#179;</p>
+            </li>
+            <li>
+              <p class="detail-category">오존</p>
+              <div v-if="CityAir.O3[CityAir.IDX] >= 0 && CityAir.O3[CityAir.IDX] <= 0.030">
+                <md-icon class="md-size-2x">sentiment_very_satisfied</md-icon>
+                <p>좋음</p>
+              </div>
+              <div v-else-if="CityAir.O3[CityAir.IDX] > 0.030 && CityAir.O3[CityAir.IDX] <= 0.090">
+                <md-icon class="md-size-2x">sentiment_satisfied</md-icon>
+                <p>보통</p>
+              </div>
+              <div v-else-if="CityAir.O3[CityAir.IDX] > 0.090 && CityAir.O3[CityAir.IDX] <= 0.15">
+                <md-icon class="md-size-2x">sentiment_dissatisfied</md-icon>
+                <p>나쁨</p>
+              </div>
+              <div v-else-if="CityAir.O3[CityAir.IDX] > 0.150">
+                <md-icon class="md-size-2x">sentiment_very_dissatisfied</md-icon>
+                <p>매우나쁨</p>
+              </div>
+              <p class="detail-value">{{ CityAir.O3[CityAir.IDX] }}ppm</p>
+            </li>
+            <li>
+              <p class="detail-category">초미세먼지</p>
+              <div v-if="CityAir.PM25[CityAir.IDX] >= 0 && CityAir.PM25[CityAir.IDX] <= 15">
+                <md-icon class="md-size-2x">sentiment_very_satisfied</md-icon>
+                <p>좋음</p>
+              </div>
+              <div v-else-if="CityAir.PM25[CityAir.IDX] > 15 && CityAir.PM25[CityAir.IDX] <= 35">
+                <md-icon class="md-size-2x">sentiment_satisfied</md-icon>
+                <p>보통</p>
+              </div>
+              <div v-else-if="CityAir.PM25[CityAir.IDX] > 35 && CityAir.PM25[CityAir.IDX] <= 75">
+                <md-icon class="md-size-2x">sentiment_dissatisfied</md-icon>
+                <p>나쁨</p>
+              </div>
+              <div v-else-if="CityAir.PM25[CityAir.IDX] > 75">
+                <md-icon class="md-size-2x">sentiment_very_dissatisfied</md-icon>
+                <p>매우나쁨</p>
+              </div>
+              <p class="detail-value">{{ CityAir.PM25[CityAir.IDX] }}&#13197;/m&#179;</p>
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -295,16 +293,17 @@ export default {
   .bg-build{background:#000;} */
 
   .content > article, .box-info{height:100%;}
+  .content .md-icon.md-theme-default.md-icon-font{color:#fff;}
   .box-info{position:relative;}
   .total-info{padding-top:3rem;line-height:1;text-align:center;box-sizing:border-box;}
-  .total-info .material-icons{padding:2rem 0 1rem;font-size:6rem;}
-  .total-info .total-score{padding-bottom:2rem;font-size:3rem;}
+  .total-info .md-icon{margin:2rem 0 1rem;}
+  .total-info .total-score{padding-bottom:1.5rem;font-size:3rem;}
   .total-info .total-area{padding-bottom:2rem;font-size:1.43rem;font-weight:bold;}
   .detail-info{position:absolute;left:0;bottom:0;width:100%;padding:1.429rem 0 2.857rem;box-sizing:border-box;}
   .detail-info:before{content:'';display:block;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff;opacity:.3;}
   .detail-info .list{font-size:0;line-height:1;}
   .detail-info .list > li{display:inline-block;width:33.3%;font-size:1rem;text-align:center;}
   .detail-info .detail-category{font-size:1.143rem;}
-  .detail-info .material-icons{padding:1rem 0 0.5rem;}
   .detail-info .detail-value{padding-top:0.5rem;}
+  .detail-info .md-icon{margin:1rem 0 0.5rem;}
 </style>

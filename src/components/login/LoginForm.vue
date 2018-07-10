@@ -64,7 +64,7 @@ export default {
       },
       userLogined:false,
       sending:false,
-      lastUser:null,
+      lastUser:null
     }
   },
   methods:{
@@ -95,7 +95,7 @@ export default {
 
     },
     validateUser () {
-      this.$v.$touch()
+
 
       //로그인 인증
       firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).catch(
@@ -106,15 +106,12 @@ export default {
               errorInfo = errorInfo[1];
           console.log(`[${errorCode}] ${errorMessage}`);
 
-          switch (errorInfo) {
-            case "user-not-found":
-              console.log("유효하지 않은 아이디입니다.");
-              break;
-            case "wrong-password":
-              console.log("유효하지 않은 비밀번호입니다.");
-              break;
-            default:
+          if (errorInfo === "user-not-found") {
+            console.log("유효하지 않은 아이디입니다.");
+          }else if(errorInfo === "wrong-password"){
+            console.log("유효하지 않은 비밀번호입니다.");
           }
+
         }
       ).then(
         (user) => {
@@ -122,15 +119,13 @@ export default {
           if (!this.$v.$invalid) {
             if(user){
               this.loginUser()
-            }else{
-
             }
           }
 
         }
       );
 
-
+      this.$v.$touch()
 
     }
   },
